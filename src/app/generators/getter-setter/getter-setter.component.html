@@ -1,0 +1,82 @@
+
+<h4>Copy your Java .class file here</h4>
+<form #generateForm="ngForm" (ngSubmit)="submit(generateForm)" novalidate>
+    <textarea 
+        name="input"
+        ngModel
+        cols="50" rows="20"></textarea>
+    <div class="button_box">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
+    </div>
+
+    <ul class="collection">
+        <li *ngIf="outputGetterAndSetter" class="collection-item">
+            <a [routerLink]="'.'" [fragment]="'getter_and_setter'">Getter & Setter</a>
+        </li>
+        <li *ngIf="outputToString" class="collection-item">
+            <a [routerLink]="'.'" [fragment]="'to_string'">toString()</a>
+        </li>
+        <li *ngIf="outputUnitTest" class="collection-item">
+            <a [routerLink]="'.'" [fragment]="'junit_test'">JUnit Test</a>
+        </li>
+        <li *ngIf="outputAngularCLI" class="collection-item">
+            <a [routerLink]="'.'" [fragment]="'angular_cli'">Angular CLI</a>
+        </li>
+        <li *ngIf="outputAngular" class="collection-item">
+            <a [routerLink]="'.'" [fragment]="'angular'">Angular</a>
+        </li>
+    </ul>
+
+    <div *ngIf="outputGetterAndSetter">
+        <h4 id="getter_and_setter" >Getter & Setter
+            <button class="btn waves-effect waves-light" type="button" (click)="copyToClipboard(outputGetterAndSetter)" name="action">
+                <i class="material-icons">content_copy</i>
+            </button>
+        </h4>
+        <pre>
+            {{ outputGetterAndSetter }}
+        </pre>
+    </div>
+
+    <div *ngIf="outputToString">
+        <h4 id="to_string">toString()
+            <button class="btn waves-effect waves-light" type="button" (click)="copyToClipboard(outputToString)" name="action">
+                <i class="material-icons">content_copy</i>
+            </button></h4>
+        <pre>
+            {{ outputToString }}
+        </pre>
+    </div>
+    
+    <div *ngIf="outputUnitTest">
+        <h4 id="junit_test">JUnit Test
+            <button class="btn waves-effect waves-light" type="button" (click)="copyToClipboard(outputUnitTest)" name="action">
+                <i class="material-icons">content_copy</i>
+            </button></h4>
+        <pre>
+            {{ outputUnitTest }}
+        </pre>
+    </div>
+
+    <div *ngIf="outputAngularCLI">
+        <h4 id="angular_cli">Angular CLI
+            <button class="btn waves-effect waves-light" type="button" (click)="copyToClipboard(outputAngularCLI)" name="action">
+                <i class="material-icons">content_copy</i>
+            </button></h4>
+        <pre>
+            {{ outputAngularCLI }}
+        </pre>
+    </div>
+
+    <div *ngIf="outputAngular">
+        <h4 id="angular">Angular
+            <button class="btn waves-effect waves-light" type="button" (click)="copyToClipboard(outputAngular)" name="action">
+                <i class="material-icons">content_copy</i>
+            </button></h4>
+        <pre>
+            {{ outputAngular }}
+        </pre>
+    </div>
+</form>
